@@ -11,13 +11,13 @@
 
 module.exports.bootstrap = async function () {
 
-  sails.argon2 = require('argon2');
+  sails.argon2 = require('argon2'); //Controla que este argon
   if (await User.count() > 0) {
-    console.log('🔥 No Vacia');
+    console.log(' no vacia');
     return;
-  }
+  } //controla si base de datos de usuarios, sino los crea
 
-  console.log('🔥 Vacia');
+  console.log('vacia');
   await User.createEach([
     {
       email: 'ry@example.com',
