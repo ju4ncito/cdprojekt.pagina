@@ -12,7 +12,6 @@ module.exports = {
 
     const user = await User.findOne({
       email: email,
-
     });
 
     if (user && sails.argon2.verify(user.password, contra)) {
@@ -28,5 +27,4 @@ module.exports = {
     res.redirect('/');
   }
 };
-
 
