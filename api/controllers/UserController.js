@@ -14,7 +14,7 @@ module.exports = {
       email: email,
     });
 
-    if (user && sails.argon2.verify(user.password, contra)) {
+    if (await sails.argon2.verify(user.password, contra)) {
       req.session.user = user;
       res.redirect("/");
     } else {
