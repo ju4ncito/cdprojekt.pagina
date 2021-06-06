@@ -23,14 +23,14 @@
                 </li>
                 <% if (req.session.user) { %>
                     <li class="nav-item">
-                        <a class="nav-link"><%= req.session.user.name %></a>
+                        <a class="nav-link "><%= req.session.user.name %></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
+                        <a class="nav-link active" href="/logout">Logout</a>
                     </li>
                 <% }else{ %>
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
+                        <a class="nav-link active" href="/login">Login</a>
                     </li>
                 <% } %>
             </ul>
