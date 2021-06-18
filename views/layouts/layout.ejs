@@ -65,7 +65,12 @@
             </ul>
             <% if (!(req.session.user === 'Juan Jose')) { %>
             <li class="nav-item">
-                <a class="nav-link active me-3 text-white bg-dark" href="/shoppingcart"><i class="bi bi-cart-fill"></i> Mi carrito</a>
+                <a class="nav-link active me-3 text-white bg-dark" href="/shoppingcart">
+                   <%if (req.session.cart){%>
+                    <%- req.session.cart.products.length %>
+                    <%}%>
+                    <i class="bi bi-cart-fill"></i>
+                    Mi carrito</a>
             </li>
             <% } %>
     </div>

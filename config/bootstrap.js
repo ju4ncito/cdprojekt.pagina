@@ -23,12 +23,13 @@ module.exports.bootstrap = async function () {
       email: 'ry@example.com',
       name: 'Ryan Dahl',
       password: await sails.argon2.hash('1234'),
+      type: 'admin'
     },
     {
       email: 'juan@pepe.com',
       name: 'Juan Jose',
       password: await sails.argon2.hash('4321'),
+      type: 'user'
     },
   ]);
-
 };

@@ -23,9 +23,12 @@ module.exports.routes = {
   'GET /login': { view: 'pages/login' },
   'POST /login': 'UserController.login' ,
   '/logout': 'UserController.logout' ,
-  'GET /add_product':{view: 'pages/add_product'},
+  'GET /add_product':'ProductController.showForm' ,
+  'POST /add_product':'ProductController.add' ,
   'GET /product':{view: 'pages/product'},
-  'GET /shoppingcart':{view: 'pages/shoppingcart'}
+  'GET /shoppingcart':{view: 'pages/shoppingcart'},
+  'GET /cart/:pid/:cant': 'ProductController.addCart' ,
+  'GET /cartDel/:pid': 'ProductController.delCart' ,
 
 
   /***************************************************************************

@@ -1,11 +1,15 @@
-<div class ="container">
-
+<div class="container">
+    <% if(msg){ %>
+        <span style="color:blue">
+        <%- msg %>
+    </span>
+    <% } %>
     <h2 class="display-7">Añadir item</h2>
 
     <form action="/add_product" method="post" style="width: 50%">
-
+        <input type="hidden" value="----" name="pid">
         <div class="form-group">
-            <label  for="name">Nombre del item:</label>
+            <label for="name">Nombre del item:</label>
             <input type="text" name="name" class="form-control">
 
         </div>
@@ -19,7 +23,7 @@
             <label for="image">URL de la imagen:</label>
             <input type="text" name="image" class="form-control">
         </div>
-            <!--Elegir entre estos dos-->
+        <!--Elegir entre estos dos-->
         <div class="mb-3">
             <label for="formFile" class="form-label">Subir imagen:</label>
             <input class="form-control" type="file" id="formFile">
@@ -41,7 +45,6 @@
 
         <br>
         <button type="submit" class="btn btn-primary">Añadir</button>
-
 
 
     </form>
