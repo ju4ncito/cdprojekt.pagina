@@ -7,7 +7,7 @@
 
 module.exports = {
   add: async function (req, res) {
-    const { name, price, image, description } = req.allParams()
+    const { name, price, image, description } = req.allParams();
 
     if (price < 0) {
       res.view('pages/add_product', { msg: 'El precio no es un numero' })
