@@ -16,10 +16,10 @@ module.exports = {
 
     if (await sails.argon2.verify(user.password, contra)) {
       req.session.user = user;
-      res.redirect("/");
+      res.redirect('/');
     } else {
       req.session.user = null;
-      res.redirect("/");
+      res.redirect('/');
     }
   },
   logout: async function (req, res) {
