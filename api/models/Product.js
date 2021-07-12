@@ -26,6 +26,12 @@ module.exports = {
       type:'string',
     },
 
+    //Asociacion
+
+    comprados: {
+      collection: 'cart',
+      via: 'products'
+    }
   }
 
 };

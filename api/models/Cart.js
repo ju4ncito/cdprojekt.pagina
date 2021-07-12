@@ -4,7 +4,7 @@
  * @description :: Server-side actions for handling carts.
  * @help        :: See https://sailsjs.com/docs/concepts/actions
 
-
+ */
 module.exports = {
 
   attributes : {
@@ -12,12 +12,21 @@ module.exports = {
       type: 'number',
       required: true
     },
-    product: {
-      model: 'dessert'
-    },
+
+    //Asociacion
     owner: {
       model: 'user'
     },
+
+    sale:{
+      collection:'sale',
+      via: 'cartSale'
+    },
+
+    products: {
+      collection: 'product',
+      via: 'comprados'
+    }
   }
 };
- */
+

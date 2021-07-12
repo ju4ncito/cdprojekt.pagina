@@ -22,6 +22,7 @@ module.exports = {
       res.redirect('/');
     }
   },
+
   logout: async function (req, res) {
     req.session.user = null;
     res.redirect('/');

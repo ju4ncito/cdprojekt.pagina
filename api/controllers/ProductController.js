@@ -28,7 +28,7 @@ module.exports = {
   },
 
 
-  showForm: async function (req, res) {
+  productView: async function (req, res) {
     res.view('pages/add_product', { msg: null });
   }
 

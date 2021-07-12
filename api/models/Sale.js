@@ -12,8 +12,10 @@ module.exports = {
       type: 'number',
       required: true
     },
-    buyer: {
-      model: 'user'
-    },
+
+    //Asociacion
+    cartSale:{
+      model:'cart',
+    }
   }
 };

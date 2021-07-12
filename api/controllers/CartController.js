@@ -1,17 +1,21 @@
 /**
- * CartController
+ * ProductController
  *
  * @description :: Server-side actions for handling incoming requests.
  * @help        :: See https://sailsjs.com/docs/concepts/actions
 
 
 module.exports = {
-  addCart: async function (req, res) {
+  newCart: async function (req, res) {
     const { pid, cant } = req.allParams();
     console.log({ pid, cant });
+
     if (!req.session.cart) {
       req.session.cart = {
-        products: []
+        quantity: 0,
+        owner: req.session.user,
+        sale: req.session.sale,
+        products: [],
       };
     }
 
@@ -20,7 +24,8 @@ module.exports = {
     );
     res.json(req.session.cart);
   },
-  delCart: async function (req, res) {
+
+  del: async function (req, res) {
     const { pid } = req.allParams();
 
     if (!req.session.cart) {

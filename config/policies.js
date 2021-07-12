@@ -16,6 +16,10 @@ module.exports.policies = {
   * (`true` allows public access)                                            *
   *                                                                          *
   ***************************************************************************/
+  ProductController: {
+    productView: 'isAdmin',
+    add: 'isAdmin'
+  }
 
   // '*': true,
 

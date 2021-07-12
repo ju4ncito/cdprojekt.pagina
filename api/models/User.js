@@ -22,7 +22,14 @@ module.exports = {
     type:{
       type: 'string',
       required: true,
-    }
+    },
+    //Asociacion
+
+    cart: {
+      collection:'cart',
+      via: 'owner'
+    },
+
   },
 };
 
