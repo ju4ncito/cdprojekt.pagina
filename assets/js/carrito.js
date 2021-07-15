@@ -8,14 +8,15 @@ function carrito_add (pid) {
   }).then(res => res.json())
     .catch(error => console.error('Error:', error))
     .then(response => {
-      console.log('Success:', response)
+      console.log('Success:', response);
       if (response.msg === 'OK') {
-        alert('Agregamos el producto')
-        const cant = parseInt(document.getElementById('carrito_cant').innerHTML)
-        document.getElementById('carrito_cant').innerHTML = cant + 1
+        alert('Agregamos el producto');
+        const cant = parseInt(document.getElementById('carrito_cant').innerHTML);
+        document.getElementById('carrito_cant').innerHTML = cant + 1;
+
       } else {
-        alert('No se pudo agregar el producto')
+        alert('No se pudo agregar el producto');
       }
-    })
+    });
 
 }

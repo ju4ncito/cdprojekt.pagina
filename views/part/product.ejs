@@ -9,7 +9,11 @@
         </p>
 
         <div class="d-grid gap-2 col-auto mx-auto">
-            <button onclick="carrito_add(<%- p.id %>)" class="btn btn-outline-dark">Añadir al carrito</button>
+            <% if (req.session.user) {  %>
+                    <button onclick="carrito_add(<%- p.id %>)" class="btn btn-outline-dark">Añadir al carrito</button>
+            <%} else {%>
+                    <button onclick="" class="btn btn-outline-dark">Logueate para poder agregar al carrito</button>
+            <% } %>
         </div>
     </div>
 </div>

@@ -29,7 +29,7 @@ module.exports = {
 
 
   productView: async function (req, res) {
-    res.view('pages/add_product', { msg: null });
+    res.view('pages/add_product', { 'msg': null });
   },
 
 
