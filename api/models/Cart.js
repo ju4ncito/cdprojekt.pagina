@@ -19,7 +19,7 @@ module.exports = {
     },
 
     sale:{
-      collection:'sale',
+      model:'sale',
       via: 'cartSale'
     },
 

@@ -30,6 +30,14 @@ module.exports = {
 
   productView: async function (req, res) {
     res.view('pages/add_product', { msg: null });
+  },
+
+
+  list: async function (req, res) {
+
+    const productos = await Product.find();
+
+    res.view('pages/product', { product: productos});
   }
 
 };

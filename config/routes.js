@@ -25,9 +25,10 @@ module.exports.routes = {
   '/logout': 'UserController.logout' ,
   'GET /add_product':'ProductController.productView' ,
   'POST /add_product':'ProductController.add' ,
-  'GET /product':{view: 'pages/product'},
+  'GET /product': 'ProductController.list' ,
   'GET /shoppingcart':{view: 'pages/shoppingcart'},
-
+  'POST /cart/add':'CartController.add' ,
+  'GET /cart/comprar':'CartController.comprar' ,
 
 
   /***************************************************************************
