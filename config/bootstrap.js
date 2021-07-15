@@ -34,16 +34,18 @@ module.exports.bootstrap = async function () {
   ]);
   await Product.createEach([
     {
-      name: 'name',
-      description: 'Una Descripcion cheta',
-      price: 50000,
-      image: 'https://http2.mlstatic.com/D_NQ_NP_957824-MLA45050117262_032021-O.jpg'
+      name: 'ETH mining rig',
+      description: 'Mining Case para la construcción de plataformas de minería Ethereum que incluyen placa base, SSD, RAM, ventiladores de refrigeración sin fuente de alimentación. El espacio de la ranura de la GPU de este producto es de 55 mm y el grosor de su' +
+        ' tarjeta gráfica no debe exceder los 50 mm para garantizar la disipación de calor normal de la tarjeta gráfica.',
+      price: 788.00,
+      image: 'https://images-na.ssl-images-amazon.com/images/I/61ETO-yfD2L._AC_SL1000_.jpg'
     },
     {
-      name: 'name2',
-      description: 'Una Descripcion cheta 2',
-      price: 20000,
-      image: 'https://http2.mlstatic.com/D_NQ_NP_957824-MLA45050117262_032021-O.jpg'
+      name: 'MSI Geforce Rtx 3070 8GB',
+      description: 'Con una velocidad de memoria de 14000 MHz los datos del procesador central se van a traducir en información comprensible en tan solo un abrir y cerrar de ojos; decodificará tantos ciclos por segundo que hará más ' +
+        'efectiva la transmisión de datos a otros componentes. Con esta cualidad, el equipo ganará agilidad y eficiencia.',
+      price: 1099.66,
+      image: 'https://www.eagletechnology.com.ar/wp-content/uploads/2021/06/1608575441_IMG_1436325.jpg'
     },
   ]);
 };
