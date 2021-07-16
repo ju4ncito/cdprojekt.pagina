@@ -5,13 +5,12 @@
         <% if (req.session.cart) {
                 for (let i = 0; i < cart.quantity; i++) { %>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-                   <% let x = cart.products[i]; %>
-        PRODUCTO: <%- x %> (aca deberia ir product name asociado con el id)
+        PRODUCTO: <%- cart.products[i].name %>
         <span class="badge bg-dark rounded-pill">
-          CANT: <%-  1 %>
+          CANT: <%-  cart.products[i].cant %>
         </span>
     </li>
-
+    <h1><%- cart.total%></h1>
                     <%} }%>
 </ul>
 <br>

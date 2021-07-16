@@ -26,7 +26,7 @@ module.exports.routes = {
   'GET /add_product':'ProductController.productView' ,
   'POST /add_product':'ProductController.add' ,
   'GET /product': 'ProductController.list' ,
-  'GET /shoppingcart':'CartController.comprar',
+  'GET /shoppingcart':'CartController.showCart',
   'POST /cart/add':'CartController.add' ,
   'GET /cart/comprar':'CartController.comprar' ,
 

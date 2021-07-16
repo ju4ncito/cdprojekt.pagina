@@ -61,5 +61,26 @@ module.exports = {
       }
     }
     res.view('pages/shoppingcart', {cart: cart});
+  },
+  showCart: async function (req, res) {
+    let cart = {};
+    if (req.session.cart) {
+      cart.quantity = req.session.cart.quantity;
+      cart.products = [];
+      cart.total = 0.0;
+      for (let p of req.session.cart.products) {
+        const product = await Product.findOne({id: p.pid});
+
+        cart.products.push({
+          name: product.name,
+          cant: p.cant,
+        });
+
+        cart.quantity +=1;
+        cart.total += product.price;
+      }
+    }
+
+    res.view('pages/shoppingcart', {cart: cart});
   }
 };
