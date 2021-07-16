@@ -1,5 +1,5 @@
 /**
- * ProductController
+ * CartController
  *
  * @description :: Server-side actions for handling incoming requests.
  * @help        :: See https://sailsjs.com/docs/concepts/actions
@@ -49,6 +49,8 @@ module.exports = {
       for (let p of req.session.cart.products) {
         for (let i = 0; i < p.cant; i++) {
           cart.products.push(p.pid);
+          console.log(p.price);
+          cart.quantity +=1;
         }
       }
       try {
@@ -58,6 +60,6 @@ module.exports = {
         console.log(e);
       }
     }
-    res.view('pages/shoppingcart', { cart: cart});
+    res.view('pages/shoppingcart', {cart: cart});
   }
 };

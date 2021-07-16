@@ -31,6 +31,7 @@ module.exports.routes = {
   'GET /cart/comprar':'CartController.comprar' ,
 
 
+
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *

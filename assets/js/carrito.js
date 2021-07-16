@@ -11,6 +11,7 @@ function carrito_add (pid) {
       console.log('Success:', response);
       if (response.msg === 'OK') {
         alert('Agregamos el producto');
+
         const cant = parseInt(document.getElementById('carrito_cant').innerHTML);
         document.getElementById('carrito_cant').innerHTML = cant + 1;
 
