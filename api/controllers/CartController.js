@@ -16,11 +16,14 @@ module.exports = {
         quantity: 0,
         owner: req.session.user,
         products: [],
+        total: 0,
       };
     }
 
     req.session.cart.products.push(
-      { pid: pid, cant: cant }
+      {
+        pid: pid,
+        cant: cant }
     );
     res.json({ msg: 'OK' });
   },
@@ -44,23 +47,31 @@ module.exports = {
     if (req.session.cart) {
       cart.quantity = req.session.cart.quantity;
       cart.owner = req.session.cart.owner;
+      cart.total = 0.0;
       cart.products = [];
 
       for (let p of req.session.cart.products) {
-        for (let i = 0; i < p.cant; i++) {
-          cart.products.push(p.pid);
-          console.log(p.price);
-          cart.quantity +=1;
-        }
-      }
-      try {
-        await Cart.create(cart);
-        delete req.session.cart;
-      } catch (e) {
-        console.log(e);
+        const product = await Product.findOne({id: p.pid});
+
+        cart.products.push({
+          name: product.name,
+          cant: p.cant,
+          price: product.price,
+        });
+
+        cart.quantity +=1;
+        cart.total += product.price;
+        req.session.cart.quantity +=1;
+        req.session.cart.total += product.price;
       }
     }
-    res.view('pages/shoppingcart', {cart: cart});
+    try {
+      await Cart.create(cart);
+      delete req.session.cart;
+    } catch (e) {
+      console.log(e);
+    }
+    res.view('pages/checkout', {cart: cart});
   },
   showCart: async function (req, res) {
     let cart = {};
@@ -74,6 +85,7 @@ module.exports = {
         cart.products.push({
           name: product.name,
           cant: p.cant,
+          price: product.price,
         });
 
         cart.quantity +=1;
@@ -82,5 +94,14 @@ module.exports = {
     }
 
     res.view('pages/shoppingcart', {cart: cart});
+  },
+
+  removeProducts: async function (req, res) {
+
+    if (req.session.cart) {
+      req.session.cart.products = [];
+    }
+
+    res.view('pages/shoppingcart', {cart: req.session.cart});
   }
 };

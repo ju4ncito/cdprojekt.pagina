@@ -7,25 +7,35 @@
         <li class="list-group-item d-flex justify-content-between align-items-center">
         PRODUCTO: <%- cart.products[i].name %>
         <span class="badge bg-dark rounded-pill">
-          CANT: <%-  cart.products[i].cant %>
+          PRECIO: <%-  cart.products[i].price %>
         </span>
     </li>
-    <h1><%- cart.total%></h1>
+
                     <%} }%>
 </ul>
 <br>
+<% if (req.session.cart && cart.quantity > 0) {  %>
 <div class="row align-items-center justify-content-around">
 <div class="card shadow  bg-white rounded text-center" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title">TOTAL DE PRODUCTOS: <%- cart.quantity%></h5>
-        <p class="card-text">precio total
-            <br>
+        <h5 class="card-title">TOTAL: <%- cart.total%> $USD </h5>
 
-        </p>
+
 
         <div class="d-grid gap-2 col-auto mx-auto">
-                <button onclick="//funcion de SALE que tire mensjae de la suma de product.price" class="btn btn-outline-dark">COMPRAR</button>
+            <button onclick="window.location.href='/cart/vaciar'" class="btn btn-outline-dark">Vaciar Carrito</button>
+                <button onclick="window.location.href='/cart/comprar'" class="btn btn-outline-success">COMPRAR</button>
         </div>
     </div>
 </div>
 </div>
+<% } else { %>
+    <div class="text-center">
+        <div class="col">
+            <h4>No se encontraron elementos en tu carrito :(</h4>
+            <p class="text-muted">
+                Añade elementos en la pestaña RIGS y Tarjetas para poder visualizarlos
+            </p>
+        </div>
+    </div>
+<% } %>
