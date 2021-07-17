@@ -71,6 +71,9 @@ module.exports = {
     } catch (e) {
       console.log(e);
     }
+    if (req.session.cart) {
+      req.session.cart.products = [];
+    }
     res.view('pages/checkout', {cart: cart});
   },
   showCart: async function (req, res) {

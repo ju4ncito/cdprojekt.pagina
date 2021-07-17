@@ -12,6 +12,10 @@ module.exports = {
       type: 'number',
       required: true
     },
+    iva: {
+      type: 'number',
+      required: true
+    },
 
     //Asociacion
     cartSale:{

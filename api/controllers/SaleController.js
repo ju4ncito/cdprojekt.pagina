@@ -12,6 +12,7 @@ module.exports = {
       if (req.session.cart){
         req.session.sale = {
           amount: req.session.cart.total,
+          iva: 21,
           cartSale: req.session.cart,
         };
       }
