@@ -1,19 +1,20 @@
 <div class="bd-example">
     <table class="table">
-
+        <thead>
+        <tr>
+            <th>Monto</th>
+            <th>IVA</th>
+            <th>Ver Carrito</th>
+        </tr>
+        </thead>
         <tbody>
+        <% for (let v of sale){%>
         <tr>
-            <th scope="row">Nombre de facturación</th>
-            <td><%- sale.cartSale.owner.name%> </td>
+            <td><%-v.amount%> </td>
+            <td><%- v.iva%> </td>
+            <td>carrito </td>
         </tr>
-        <tr>
-            <th scope="row">Precio de su carrito</th>
-            <td><%- sale.cartSale.total%> $USD </td>
-        </tr>
-        <tr>
-            <th scope="row">Precio final (aplicando impuestos)</th>
-            <td class="table-success"><%- (sale.cartSale.total)*(sale.iva)%> $USD </td>
-        </tr>
+        <%}%>
         </tbody>
 
     </table>

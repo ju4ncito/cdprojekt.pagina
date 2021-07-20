@@ -8,17 +8,9 @@
 
 module.exports = {
   add: async function (req, res) {
-    if(!req.session.sale){
-      if (req.session.cart){
-        req.session.sale = {
-          amount: req.session.cart.total,
-          iva: 21,
-          cartSale: req.session.cart,
-        };
-      }
-    }
+    const ventas = await Sale.find();
     console.log(req.session.sale);
-    res.view('pages/sale', {sale: req.session.sale});
+    res.view('pages/sale', {sale: ventas});
   },
   showData: async function (req, res) {
     res.view('pages/sale', {sale: sale});
