@@ -72,6 +72,7 @@ module.exports = {
       console.log(e);
     }
     if (req.session.cart) {
+      req.session.cart.quantity = 0;
       req.session.cart.products = [];
     }
     res.view('pages/checkout', {cart: cart});
